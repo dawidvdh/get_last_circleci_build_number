@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email         = 'dawidvdh@gmail.com'
 
   spec.summary       = 'fetches the last build number from circleci.'
-  spec.homepage      = "https://github.com/dawidvdh/fastlane-plugin-get_last_circleci_build_number"
+  spec.homepage      = "https://github.com/dawidvdh/get_last_circleci_build_number"
   spec.license       = "MIT"
 
   spec.files         = Dir["lib/**/*"] + %w(README.md LICENSE)
