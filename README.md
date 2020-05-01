@@ -18,7 +18,9 @@ Ensure you have the following enviroment variables set:
 
 You should be able to find your repository name and user name on circleci when you enter into a project the url will be `https://app.circleci.com/projects/project-setup/github/dawidvdh/some-project` so in this case `dawidvdh` is my username and `some-project` is my project.
 
-I typical use it in the projectg like so:
+## Usage
+
+I typical use it in a project like so:
 
 ```
 before_all do |options, params|
