@@ -18,6 +18,17 @@ Ensure you have the following enviroment variables set:
 
 You should be able to find your repository name and user name on circleci when you enter into a project the url will be `https://app.circleci.com/projects/project-setup/github/dawidvdh/some-project` so in this case `dawidvdh` is my username and `some-project` is my project.
 
+I typical use it in the projectg like so:
+
+```
+before_all do |options, params|
+  Dotenv.overload '.env'
+  build_number = params[:build_number] || ENV["CIRCLE_BUILD_NUM"] || get_last_circleci_build_number
+end
+```
+
+where my `.env` contains `CIRCLECI_TOKEN`, `CIRCLECI_USER_NAME` and `CIRCLECI_REPOSITORY`.
+
 ## About get_last_circleci_build_number
 
 Makes user of [circleci gem] to fetch the last build number from circleci.
