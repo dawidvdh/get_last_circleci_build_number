@@ -1,7 +1,11 @@
 require 'fastlane/action'
 
 module Fastlane
-  module Actions
+	module Actions
+		module SharedValues
+      GET_LAST_CIRCLECI_BUILD_NUMBER = :GET_LAST_CIRCLECI_BUILD_NUMBER
+		end
+
     class GetLastCircleciBuildNumberAction < Action
       def self.run(params)
         Actions.verify_gem!('circleci')
@@ -40,7 +44,7 @@ module Fastlane
           e['build_num']
         end
 
-        Actions.lane_context[SharedValues::GET_LAST_CIRCLECI_BUILD_NUMBER] = build_num[0].to_i
+        Actions.lane_context[SharedValues::GET_LAST_CIRCLECI_BUILD_NUMBER] = build_num[0]
       end
 
       def self.description
@@ -51,8 +55,10 @@ module Fastlane
         ["Dawid van der Hoven"]
       end
 
-      def self.return_value
-        "the last build number from circleci as a string"
+      def self.output
+        [
+          ['LAST_CIRCLE_CI_BUILD_NUMBER', 'Last Build Number']
+        ]
       end
 
       def self.details
